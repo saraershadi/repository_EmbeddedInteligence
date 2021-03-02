@@ -1,4 +1,4 @@
-# myfirst_repo
+# repository_EmbeddedInteligence
 
 g++ -o main.c main.out
 ./main.out
