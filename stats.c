@@ -34,29 +34,61 @@ void main() {
 }
 
 void print_statistics(unsigned char array[], unsigned int length){
-
+	printf("The original array:\n\n");
+	print_array(array, length);
+	sort_array(array, length);
+	printf("The Sorted array:\n");
+	print_array(array, length);
+	printf("The Median is: %d\n", find_median(array, length));
+	printf("The Mean is: %d\n", find_mean(array, length));
+	printf("The Max is: %d\n", find_max(array, length));
+	printf("The Min is: %d\n\n", find_min(array, length));	
+	return;
 }
 
 void print_array(unsigned char array[], unsigned int length){
-
+	for(int i = 0; i < length/8; i++){//jump on each row
+		for(int j = 0; j < length/5; j++){//jump on each column
+		       printf("%3d  ", array[8*i+j]);
+		}
+ 		printf("\n");
+	}
+	
+	printf("\n");	
+	return;
 }
 
 unsigned char find_median(unsigned char array[], unsigned int length){
-
+	return array[(length-1)/2];
 }
 
 unsigned char find_mean(unsigned char array[], unsigned int length){
+	unsigned int sum = 0;
+	for(int i = 0; i < length; i++){
+		sum += array[i];	
+	}
 
+	return (unsigned char)( sum / length );
 }
 
 unsigned char find_max(unsigned char array[], unsigned int length){
-
+	return array[length-1]; // last elemnt of sorted array
 }
 
 unsigned char find_min(unsigned char array[], unsigned int length){
-
+	return array[0]; //first elemnt of sorted array
 }
 
 void sort_array(unsigned char array[], unsigned int length){
-
+	unsigned char tmp; // selection sort
+	for(int i = 0; i < length; i++){
+		for(int j = i; j < length; j++){
+			if(array[j] < array[i]){
+				tmp = array[j];
+				array[j] = array[i];
+				array[i] = tmp;
+			}
+		}
+	}
+	return;
 }
