@@ -39,5 +39,42 @@ void main() {
   /* Statistics and Printing Functions Go Here */
 
 }
-
+int max(int test[size])
+{
+  max_a=test[1];
+  for(i=2;i<=size;i++)
+  { 
+    if (test[i]>max_a)
+       {
+         max_a=test[i]
+       }
+  }  
+  myprintfunc(max_i);
+}
+int min(int test[size])
+{
+  min_a=test[1];
+  for(i=2;i<=size;i++)
+  { 
+    if (test[i]<min_a)
+       {
+         min_a=test[i]
+       }
+  }  
+  myprintfunc(min_i);
+}
+int mean(int test[size])
+{
+  sum=test[1];
+  for(i=2;i<=size;i++)
+  { 
+   sum=sum+test[i];
+  }  
+  average=sum/size;
+  myprintfunc(average);
+}
+void myprintfunc(a)
+{
+  printf(a,'/n');
+}
 /* Add other Implementation File Code Here */
