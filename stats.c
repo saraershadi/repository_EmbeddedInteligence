@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main()
 {  
      int i;                          
@@ -10,7 +9,7 @@ int main()
      int odd,even;          
      for(i=0;i<40;i++){
        sum+=a[i];
-	      }
+          }
       printf("sum is: %d",sum);
       for(i=0;i<40;i++){
             if(a[i]>max){             
