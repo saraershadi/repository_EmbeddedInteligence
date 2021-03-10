@@ -3,15 +3,28 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/zs/mian.c" added="2021-03-08T12:16:26Z" modified="2021-03-08T12:16:36Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/zs/repository_EmbeddedInteligence/stats.c" added="2021-03-10T21:44:32Z" modified="2021-03-10T21:49:53Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
-        <mime:mime-type type="text/x-csrc"/>
+        <mime:mime-type type="text/plain"/>
         <bookmark:groups>
           <bookmark:group>gedit</bookmark:group>
         </bookmark:groups>
         <bookmark:applications>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2021-03-08T12:16:36Z" count="2"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2021-03-10T21:49:53Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/zs/repository_EmbeddedInteligence/stast.h" added="2021-03-10T21:53:17Z" modified="2021-03-10T21:53:17Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-chdr"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2021-03-10T21:53:17Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
