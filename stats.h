@@ -14,9 +14,6 @@
  *
  * <Add Extended Description Here>
  *
- * @author Sabyasachi Paul
- * @date 25.05.2018
- *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
