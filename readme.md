@@ -1,3 +1,2 @@
-fateme abedini
-assignment for embedded inteligence
-
+/* fateme abedini */
+/* assignment for embedded inteligence */

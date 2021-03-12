@@ -10,12 +10,12 @@
  *****************************************************************************/
 /**
  * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @brief <assignment 1 for embedded inteligence >
  *
  * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author <fateme abedini>
+ * @date <17 esfand 1399>
  *
  */
 
@@ -39,42 +39,74 @@ void main() {
   /* Statistics and Printing Functions Go Here */
 
 }
-int max(int test[size])
-{
-  max_a=test[1];
-  for(i=2;i<=size;i++)
-  { 
-    if (test[i]>max_a)
-       {
-         max_a=test[i]
-       }
-  }  
-  myprintfunc(max_i);
-}
-int min(int test[size])
-{
-  min_a=test[1];
-  for(i=2;i<=size;i++)
-  { 
-    if (test[i]<min_a)
-       {
-         min_a=test[i]
-       }
-  }  
-  myprintfunc(min_i);
-}
-int mean(int test[size])
-{
-  sum=test[1];
-  for(i=2;i<=size;i++)
-  { 
-   sum=sum+test[i];
-  }  
-  average=sum/size;
-  myprintfunc(average);
-}
 void myprintfunc(a)
 {
   printf(a,'/n');
+}
+void myprintarray(int test[SIZE])
+{
+  for(int i=2;i<=SIZE;i++)
+  { 
+  printf(test[i],'/n');
+  }  
+  
+}
+int sort_array(int test[SIZE])
+{
+int temp;
+  for(int i=0;i<=SIZE;i++)
+  { 
+     for(int j=i+1;j<=SIZE;j++)
+      { 
+         if (test[i]>test[j])
+         {
+           temp =test[i];
+           test[i]=test[j];
+           test[j]=temp;
+         }
+       }
+         
+  
+  myprintarray(test[SIZE]);
+}
+int find_max(int test[SIZE])
+{
+  int max_a=test[1];
+  for(int i=2;i<=SIZE;i++)
+  { 
+    if (test[i]>max_a)
+       {
+         max_a=test[i];
+       }
+  }  
+  myprintfunc(max_a);
+}
+int find_min(int test[SIZE])
+{
+  int min_a=test[1];
+  for(int i=2;i<=SIZE;i++)
+  { 
+    if (test[i]<min_a)
+       {
+         min_a=test[i];
+       }
+  }  
+  myprintfunc(min_a);
+}
+int find_mean(int test[SIZE])
+{
+  sort_array(test);
+  myprintfunc(test[SIZE/2]);
+}
+int find_median(int test[SIZE])
+{
+  int sum=test[1];
+  for(int i=2;i<=SIZE;i++)
+  { 
+   sum=sum+test[i];
+  }  
+  int average=sum/SIZE;
+  myprintfunc(average);
+}
 }
 /* Add other Implementation File Code Here */
