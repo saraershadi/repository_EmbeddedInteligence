@@ -1,136 +1,133 @@
 /******************************************************************************
-  by Mahdi Yousefi
+ @file <stats.c> 
+ @author <Pardis Gifani>
+ @date 05/28/2021
 
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
- *
- * Redistribution, modification or use of this software in source or binary
- * forms is permitted as long as the files maintain this copyright. Users are 
- * permitted to modify this and use it to learn about the field of embedded
- * software. Alex Fosdick and the University of Colorado are not liable for any
- * misuse of this material. 
- *
+   * Instructions:
+ 
+        This is the 1st HW of the Coursera Course Embedded Software.
+ 
+                main() - The main entry point for your program
+                print_statistics() - A function that prints the statistics of an array including minimum, maximum, mean, and median.
+                print_array() - Given an array of data and a length, prints the array to the screen             [DONE]
+                find_median() - Given an array of data and a length, returns the median value                   [DONE]
+                find_mean() - Given an array of data and a length, returns the mean                             [DONE]
+                find_maximum() - Given an array of data and a length, returns the maximum                       [DONE]
+                find_minimum() - Given an array of data and a length, returns the minimum                       [DONE]
+                sort_array() - Given an array of data and a length, sorts the array from largest to smallest.   [DONE]
+                        (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value. )
+
  *****************************************************************************/
-/**
- * @file <stats.c> 
- *
- *
- */
-
-
 
 #include <stdio.h>
 #include "stats.h"
 
-/* Size of the Data Set */
 #define SIZE (40)
-
-void main()
-{
-	
-
-  /* Other Variable Declarations Go Here */
-  float mean = find_mean(test, SIZE);
-  float median = find_median(test, SIZE);
-  unsigned char min = find_minimum(test, SIZE);
-  unsigned char max = find_maximum(test, SIZE);
-
-  /* Statistics and Printing Functions Go Here */
-  print_statistics(mean, median, min, max);
-  printf("\nArray before sorting : \n");
-  print_array(test, SIZE);
-
-  printf("\nArray after sorting in descending order : \n");
-  sort_array(test, SIZE);  
-  print_array(test, SIZE);
-
-
-}
-
-/* Add other Implementation File Code Here */
-
-void print_statistics(float mean, float median, unsigned char min, unsigned char max){
-	printf("Mean: %f \n", mean);
-	printf("Median: %f \n", median);
-	printf("Minimum: %u \n", min);
-	printf("Maximum: %u \n", max);
-}
+/* main() - The main entry point for your program */
+void main() {
+   unsigned char array[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                               114, 88,   45,  76, 123,  87,  25,  23,
+                               200, 122, 150, 90,   92,  87, 177, 244,
+                               201,   6,  12,  60,   8,   2,   5,  67,
+                                 7,  87, 250, 230,  99,   3, 100,  90};
+  
+  unsigned char sorted_array[SIZE];
+  int maximum = 0, minimum = 0, median = 0, mean = 0;
+  
+  printf("Unsorted array \n");
+  print_array(array);
+  sort_array(array);
+  printf("\nSorted array \n");
+  print_array(array);
+  printf("\n");
+  maximum = find_maximum(array);
+  minimum = find_minimum(array);
+  median  = find_median(array);
+  mean   = find_mean(array);
+  print_statistics(median, mean, maximum, minimum);
+ 
+ }
 
 
-void print_array(unsigned char *ptr, unsigned int size){
-	for(int i = 0; i < size; i++){
-		printf("%d \t", ptr[i] );
-	}
+/* print_statistics() *///////////////////////
+void print_statistics(int median, int mean, int maximum, int minimum) {
+       printf("Median = %i; \t
+              Mean = %i;
+              \t Maximum = %i;
+              \t Minimum = %i\n"
+              , median, mean, maximum, minimum);
 }
 
 
-float find_median(unsigned char *ptr, unsigned int size){
+/* print_array(): Given an array of data and a length, prints the array to the screen */
+void print_array(unsigned char array[]) {
+       int i = 0;
+       for (i = 0; i < SIZE; i++) {
+               printf("%i\t%i\n", array[i], i);
+       }
+}
 
-	unsigned char sorted_array[size];
-	for(int i = 0; i < size; i++)
-		sorted_array[i] = ptr[i];
 
-	unsigned char temp;
-	for(int i = 0; i < size; i++){
-		for(int j = i+1; j < size; j++){
-			if( sorted_array[i] > sorted_array[j] ){
-				temp = sorted_array[i];
-				sorted_array[i] = sorted_array[j];
-				sorted_array[j] = temp;
+/* find_median() - Given an array of data and a length, returns the median value */
+int find_median(unsigned char sorted_array[]) {
+       int i = 0, median = 0;
+       if (SIZE % 2 == 0) {
+               median = sorted_array[SIZE/2] + sorted_array[SIZE/2 - 1];
+       } else {
+               median = sorted_array[(SIZE - 2) / 2];
+       }
+       return median;
+}
+
+
+
+/* find_mean() -  Given an array of data and a length, returns the mean */
+int find_mean(unsigned char array[]) {
+       int i = 0, mean = 0;
+       for(i = 0; i < SIZE; i++) {
+               mean = mean + array[i];
+       }
+       mean = mean / (SIZE + 1);
+       return mean;
+ }
+
+
+/* find_maximum() -  Given an array of data and a length, returns the maximum */
+int find_maximum(unsigned char array[]) {
+       int i = 0, maximum = 0;
+       for(i = 0; i < SIZE; i++) {
+               if(maximum < array[i]) {
+                       maximum = array[i];
+               }
+       }
+}
+
+
+/* find_minimum() -  Given an array of data and a length, returns the minimum */ 
+int find_minimum(unsigned char array[]) {
+       int i = 0, minimum = 0;
+       for(i = 0; i < SIZE; i++) {
+               if(minimum < array[i]) {
+                       minimum = array[i];
+               }
+       }
+       return minimum;
+}
+
+
+/* sort_array() - Given an array of data and a length, sorts the array from largest to smallest.  (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value */
+void sort_array(unsigned char array[], unsigned int length) {
+	int i = 0, j = 0;
+	unsigned char tmp = 0; // selection sort
+	for(int i = 0; i < length; i++){
+		for(int j = i; j < length; j++){
+			if(array[j] < array[i]){
+				tmp = array[j];
+				array[j] = array[i];
+				array[i] = tmp;
 			}
 		}
 	}
-
-	if ( size%2 == 0 ){
-		float a = (float)(sorted_array[(size/2)-1]);
-		float b = (float)(sorted_array[(size/2)]);
-		float med = (a+b)/2.0;
-		return med;
-	}
-	else
-		return sorted_array[(size)/2];
+	return;
 }
 
-
-float find_mean(unsigned char *ptr, unsigned int size){
-	float mean = 0;
-	for(int i = 0; i < size; i++){
-		mean += ptr[i];
-	}
-	mean = mean / size;
-	return mean;
-}
-
-
-
-unsigned char find_minimum(unsigned char *ptr, unsigned int size){
-	unsigned char min = ptr[0];
-	for(int i = 1; i < size; i++){
-		if ( ptr[i] < min )
-			min = ptr[i];
-	}
-	return min;
-}
-
-
-unsigned char find_maximum(unsigned char *ptr, unsigned int size){
-	unsigned char max = ptr[0];
-	for(int i = 1; i < size; i++){
-		if ( ptr[i] > max )
-			max = ptr[i];
-	}
-	return max;
-}
-
-
-void sort_array(unsigned char *ptr, unsigned int size){
-	unsigned char temp;
-	for(int i = 0; i < size; i++){
-		for(int j = i+1; j < size; j++){
-			if( ptr[i] < ptr[j] ){
-				temp = ptr[i];
-				ptr[i] = ptr[j];
-				ptr[j] = temp;
-			}
-		}
-	}
-}
