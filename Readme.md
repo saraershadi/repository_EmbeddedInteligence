@@ -1,2 +1,8 @@
 The first exercise of artificial intelligence lessons in latent systems
- by owner Mahdi Yousefi number :9713101044
+ the True Owner is FUM 
+
+ the main refrences is :
+Alex FosDick
+
+https://www.coursera.org/learn/introduction-embedded-systems
+
